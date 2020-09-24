@@ -11,6 +11,12 @@ pool:
 
 variables:
   solution: '**/*.sln'
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'PublishProfile'
+    PublishProfilePath: '$(System.DefaultWorkingDirectory)/**/*.pubxml'
+    PublishProfilePassword: 'fxgjWSig8xHTQqWPurXjDrnH8amzZbbmr38a3cKvaFEdCag7ys3KrYtEm12T'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
